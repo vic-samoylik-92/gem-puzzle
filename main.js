@@ -405,3 +405,11 @@ resultsPopupCross.addEventListener("click", () => {
   resultsPopup.style.opacity = "0";
 });
 
+//  ======= Save Button and Logic =======
+const saveButton = document.getElementById("save");
+saveButton.addEventListener("click", () => {
+  savePopup.classList.add("show-and-hide");
+  setTimeout(() => {
+    savePopup.classList.remove("show-and-hide");
+  }, 3500);
+});
