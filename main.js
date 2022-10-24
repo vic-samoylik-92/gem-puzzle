@@ -354,3 +354,23 @@ makeBoardItemsRun();
 function clearBoard() {
   board.innerHTML = "";
 }
+
+// ======= Shuffle and Start Button Interactions =======
+const shuffleStartButton = document.getElementById("shuffle-start");
+
+shuffleStartButton.addEventListener("click", () => {
+  isSolved = false;
+  sec = 0;
+  min = 0;
+  movesCounter = 0;
+  movesHolder.innerText = movesCounter;
+
+  if (!isTimeRunning) {
+    clock();
+    isTimeRunning = true;
+  }
+  squareSize = 320 / boardRows;
+  clearBoard();
+  renderBoard(boardRows * boardRows - 1, boardRows, squareSize);
+  makeBoardItemsRun();
+});
