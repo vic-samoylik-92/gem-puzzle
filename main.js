@@ -266,3 +266,26 @@ function move(index, empty) {
     winPopup.style.opacity = "1";
   }
 }
+
+// ======= Make Sound Function =======
+const soundButton = document.getElementById("sound");
+soundButton.addEventListener("click", () => {
+  if (hasSound) {
+    hasSound = false;
+    soundButton.innerHTML = `<img src="./sound-off-icon.svg" />`;
+    soundButton.style.textDecoration = "line-through";
+    soundButton.style.backgroundColor = "#a82c2c";
+    soundButton.style.boxShadow = "0 2px 3px #813030";
+  } else {
+    hasSound = true;
+    soundButton.innerHTML = '<img src="./sound-on-icon.svg" />';
+    soundButton.style.textDecoration = "none";
+    soundButton.style.backgroundColor = "#3c6b6d";
+    soundButton.style.boxShadow = "0 2px 3px #243b3b";
+  }
+});
+
+function makeNoise() {
+  const audio = new Audio("./click.mp3");
+  audio.play();
+}
