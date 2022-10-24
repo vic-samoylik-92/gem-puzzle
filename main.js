@@ -350,3 +350,7 @@ function makeBoardItemsRun() {
 renderBoard(boardRows * boardRows - 1, boardRows);
 makeBoardItemsRun();
 
+// Clear the Board
+function clearBoard() {
+  board.innerHTML = "";
+}
