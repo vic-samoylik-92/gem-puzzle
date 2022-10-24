@@ -413,3 +413,23 @@ saveButton.addEventListener("click", () => {
     savePopup.classList.remove("show-and-hide");
   }, 3500);
 });
+
+// ======= Cross Button and Restart Game With It =======
+winPopupCross.addEventListener("click", () => {
+  isSolved = false;
+  sec = 0;
+  min = 0;
+  movesCounter = 0;
+  movesHolder.innerText = movesCounter;
+
+  if (!isTimeRunning) {
+    clock();
+    isTimeRunning = true;
+  }
+  squareSize = 320 / boardRows;
+  clearBoard();
+  renderBoard(boardRows * boardRows - 1, boardRows, squareSize);
+  makeBoardItemsRun();
+  winPopup.style.transform = "scale(0)";
+  winPopup.style.opacity = "0";
+});
