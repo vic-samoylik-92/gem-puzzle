@@ -191,3 +191,25 @@ function trackMoves() {
   movesCounter++;
   movesHolder.innerText = movesCounter;
 }
+
+// ======= Simple Stopwatch =======
+const stopwatch = document.getElementById("count-time");
+stopwatch.innerText = `0${min}:0${sec}`;
+
+function ticking() {
+  sec++;
+  if (sec >= 60) {
+    sec = 0;
+    min++;
+  }
+}
+
+function renderStopwatch() {
+  ticking();
+  stopwatch.innerText =
+    (min < 10 ? "0" + min + ":" : min + ":") + (sec < 10 ? "0" + sec : sec);
+}
+
+function clock() {
+  timer = setInterval(renderStopwatch, 1000);
+}
