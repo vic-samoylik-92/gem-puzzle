@@ -336,3 +336,12 @@ function renderBoard(size, columns, width = 80) {
     board.append(boardItem);
   }
 }
+
+// ======= Adding Event Listener to Every New Board Item =======
+function makeBoardItemsRun() {
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].element.addEventListener("click", () => {
+      move(i, empty);
+    });
+  }
+}
