@@ -213,3 +213,56 @@ function renderStopwatch() {
 function clock() {
   timer = setInterval(renderStopwatch, 1000);
 }
+
+// ======= Move Function =======
+function move(index, empty) {
+  const square = squares[index];
+
+  const leftDifference = Math.abs(empty.left - square.left);
+  const TopDifference = Math.abs(empty.top - square.top);
+
+  if (leftDifference + TopDifference > 1) {
+    return;
+  }
+
+  if (!isTimeRunning) {
+    sec = 0;
+    min = 0;
+    clock();
+    isTimeRunning = true;
+  }
+
+  square.element.style.left = `${empty.left * squareSize}px`;
+  square.element.style.top = `${empty.top * squareSize}px`;
+
+  const emptyLeft = empty.left;
+  const emptyTop = empty.top;
+  empty.left = square.left;
+  empty.top = square.top;
+  square.left = emptyLeft;
+  square.top = emptyTop;
+
+  trackMoves();
+
+  if (hasSound) {
+    makeNoise();
+  }
+
+  let solvedReference = [...Array(boardRows * boardRows).keys()].map(
+    (item) => item + 1,
+  );
+  let boardItemsArray = Array.from(document.querySelectorAll(".board__item"));
+  isSolved = boardItemsArray.every((item, index) => {
+    return Number(item.innerText) === solvedReference[index];
+  });
+
+  console.log(isSolved);
+
+  if (isSolved) {
+    const fullTime =
+      (min < 10 ? "0" + min + ":" : min + ":") + (sec < 10 ? "0" + sec : sec);
+    winPopupHeading.innerText = `Hooray! You solved the puzzle in ${fullTime} and ${movesCounter} moves!`;
+    winPopup.style.transform = "scale(1)";
+    winPopup.style.opacity = "1";
+  }
+}
