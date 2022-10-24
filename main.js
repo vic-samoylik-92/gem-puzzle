@@ -392,3 +392,16 @@ for (let i = 3; i < 9; i++) {
     boardSizeCurrentText.innerText = `${boardRows}x${boardRows}`;
   });
 }
+
+// ======= Results Button and Pop-Up =======
+const resultsButton = document.getElementById("results");
+resultsButton.addEventListener("click", () => {
+  resultsPopup.style.transform = "scale(1)";
+  resultsPopup.style.opacity = "1";
+});
+
+resultsPopupCross.addEventListener("click", () => {
+  resultsPopup.style.transform = "scale(0)";
+  resultsPopup.style.opacity = "0";
+});
+
