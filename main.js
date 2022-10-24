@@ -127,3 +127,16 @@ const crossSrc = "./cross.svg";
 winPopupCross.src = crossSrc;
 
 winPopupBody.append(winPopupHeading, winPopupCross);
+
+// ======= Initial Settings =======
+let isSolved = false;
+let boardRows = 4;
+let squareSize = 80;
+let empty = {};
+let squares = [];
+let results = [];
+let sec = 0;
+let min = 0;
+let movesCounter = 0;
+let isTimeRunning = false;
+let hasSound = true;
