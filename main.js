@@ -183,3 +183,11 @@ resultsPopupCross.classList = "results-popup__cross";
 resultsPopupCross.src = crossSrc;
 
 resultsPopupBody.append(resultsPopupInfo, resultsPopupCross);
+
+// ======= Track Moves =======
+movesHolder.innerText = movesCounter;
+
+function trackMoves() {
+  movesCounter++;
+  movesHolder.innerText = movesCounter;
+}
