@@ -374,3 +374,21 @@ shuffleStartButton.addEventListener("click", () => {
   renderBoard(boardRows * boardRows - 1, boardRows, squareSize);
   makeBoardItemsRun();
 });
+
+// ======= Board Size Buttons and Board Change According to Choose =======
+for (let i = 3; i < 9; i++) {
+  const button = document.getElementById(`${i}x${i}`);
+  button.addEventListener("click", () => {
+    isSolved = false;
+    sec = 0;
+    min = 0;
+    boardRows = i;
+    movesCounter = 0;
+    movesHolder.innerText = movesCounter;
+    squareSize = 320 / i;
+    clearBoard();
+    renderBoard(i * i - 1, i, 320 / i);
+    makeBoardItemsRun();
+    boardSizeCurrentText.innerText = `${boardRows}x${boardRows}`;
+  });
+}
