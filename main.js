@@ -345,3 +345,8 @@ function makeBoardItemsRun() {
     });
   }
 }
+
+// ======= Initial Call of Render Board Function and Make them Interactiove =======
+renderBoard(boardRows * boardRows - 1, boardRows);
+makeBoardItemsRun();
+
