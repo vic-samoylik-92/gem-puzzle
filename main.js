@@ -157,3 +157,29 @@ saveWrapper.append(saveWrapperText);
 const saveWrapperTextSmall = document.createElement("p");
 saveWrapperTextSmall.innerText = "the functinality isn't implemented yet";
 saveWrapper.append(saveWrapperTextSmall);
+
+// ======= Create Results Popup =======
+const resultsPopup = document.createElement("div");
+resultsPopup.className = "results-popup";
+body.append(resultsPopup);
+
+const resultsPopupWrapper = document.createElement("div");
+resultsPopupWrapper.className = "results-popup__wrapper";
+resultsPopup.append(resultsPopupWrapper);
+
+const resultsPopupBody = document.createElement("div");
+resultsPopupBody.className = "results-popup__body";
+resultsPopupWrapper.append(resultsPopupBody);
+
+const resultsPopupInfo = document.createElement("div");
+resultsPopupInfo.className = "results-popup__info";
+resultsPopupInfo.innerHTML =
+  results.length === 0
+    ? `<h4>Seems There are<br>No Any Saved Results...</h4><p>the functinality isn't implemented yet</p>`
+    : "Results.";
+
+const resultsPopupCross = document.createElement("img");
+resultsPopupCross.classList = "results-popup__cross";
+resultsPopupCross.src = crossSrc;
+
+resultsPopupBody.append(resultsPopupInfo, resultsPopupCross);
