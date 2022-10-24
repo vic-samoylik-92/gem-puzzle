@@ -289,3 +289,50 @@ function makeNoise() {
   const audio = new Audio("./click.mp3");
   audio.play();
 }
+
+// ======= Rendering the Board =======
+function renderBoard(size, columns, width = 80) {
+  squares = [];
+  // Generate Random Numbers
+  const numbers = [...Array(size + 1).keys()]
+    .map((item) => item + 1)
+    .sort((item) => Math.random() - 0.5);
+
+  // Generate Board Itself
+  for (let i = 0; i < size + 1; i++) {
+    const boardItem = document.createElement("div");
+    boardItem.className = "board__item";
+    boardItem.id = `${numbers[i]}`;
+    let value = numbers[i];
+    boardItem.innerText = value;
+
+    let left = i % columns;
+    let top = (i - left) / columns;
+
+    boardItem.style.width = `${width}px`;
+    boardItem.style.height = `${width}px`;
+
+    if (value === size + 1) {
+      empty = {
+        value: size + 1,
+        top: top,
+        left: left,
+        element: boardItem,
+      };
+      squares.push(empty);
+      boardItem.id = "empty-square";
+    } else {
+      squares.push({
+        value: value,
+        left: left,
+        top: top,
+        element: boardItem,
+      });
+    }
+
+    boardItem.style.left = `${left * width}px`;
+    boardItem.style.top = `${top * width}px`;
+
+    board.append(boardItem);
+  }
+}
