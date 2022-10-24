@@ -140,3 +140,20 @@ let min = 0;
 let movesCounter = 0;
 let isTimeRunning = false;
 let hasSound = true;
+
+// ======= Create Save Popup =======
+const savePopup = document.createElement("div");
+savePopup.className = "save";
+body.append(savePopup);
+
+const saveWrapper = document.createElement("div");
+saveWrapper.className = "save__wrapper";
+savePopup.append(saveWrapper);
+
+const saveWrapperText = document.createElement("h4");
+saveWrapperText.innerHTML = "Saved...<br><br>You Can Reboot Page Safely";
+saveWrapper.append(saveWrapperText);
+
+const saveWrapperTextSmall = document.createElement("p");
+saveWrapperTextSmall.innerText = "the functinality isn't implemented yet";
+saveWrapper.append(saveWrapperTextSmall);
